@@ -189,22 +189,20 @@ public class Tasks {
 
     public static int[] zeroMax(int[] nums) {
         int temp = 0;
-        for (int i = 0; i < nums.length ; i++) {
-            if(nums[i] == 0){                                                          // НЕ РЕШЕНА !!!
+        for (int i = 0; i < nums.length - 1 ; i++) {
+            if(nums[i] % 2 != 0 && nums[i] > nums[i+1]){
+                temp = nums[i];
 
-                // nums[i] = nums[i + 1];(nums[i + 1] % 2 != 0)
+                for (int j = 0; j < nums.length; j++) {
+                    if (nums[j] == 0){
+                        nums[j] = temp;
+                        temp = 0;
 
-                for (int j = nums[i]; j < nums.length -1; j++) {
-                    if ((nums[j] % 2 != 0) && (nums[j +1]) % 2 != 0){
-                        temp = nums[j] ;
-                        nums[j] = nums[j +1];
-                        nums[j +1] = temp;
-
-                        nums[j] = nums[j +1];
                     }
                 }
             }
         }
+
         return nums;
     }
 

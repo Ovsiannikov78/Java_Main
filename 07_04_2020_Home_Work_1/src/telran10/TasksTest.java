@@ -17,7 +17,7 @@ public class TasksTest {
     sleepIn(false, true) → true
 */
 
-   /*
+
    @Test
     public void testSleepIn1(){
         Tasks c = new Tasks();
@@ -36,7 +36,7 @@ public class TasksTest {
         Tasks c = new Tasks();
         boolean bool = c.sleepIn(false, true);
         assertTrue (bool);
-    }    */
+    }
 
     /* --------------- Task - endUp --------------------
      Дана строка,​вернуть новую строку, где последние 3 символа в верхнем регистре (заглавные).
@@ -63,7 +63,7 @@ public class TasksTest {
     diff21(25) → 8
     */
 
- /*   @Test
+    @Test
     public void testDiff21_1(){
         Tasks c = new Tasks();
         int n = c.diff21(19);
@@ -89,21 +89,9 @@ public class TasksTest {
         Tasks c = new Tasks();
         int n = c.diff21(25);
         assertEquals(n,Math.abs(21-25)*2);
-    }     */
-
-    /* --------------- Task - endUp --------------------
-     Дана строка,​вернуть новую строку, где последние 3 символа в верхнем регистре (заглавные).
-     Если строка длины меньше 3, перевести это в заглавные.
-     endUp("Hello") → "HeLLO"
-     endUp("hi there") → "hi thERE"
-     endUp("hi") → "HI"
+    }
 
 
-
-    @Test
-    public void testEndUp(){
-
-    } */
 
     /* ---------- TASK - maxNumber ---------------
     Даны три целых числ​a a, b, c. Вернуть наибольшее.
@@ -112,7 +100,7 @@ public class TasksTest {
      intMax(3, 2, 1) → 3
      */
 
- /*   @Test
+    @Test
     public void testMax1(){
         Tasks c = new Tasks();
         int max = c.Max(1,2,3);
@@ -130,7 +118,7 @@ public class TasksTest {
         Tasks c = new Tasks();
         int max = c.Max(3,2,1);
         assertEquals(max,3);
-    }   */
+    }
 
     /* ----------------- TASK - commonEnd ----------------
     Даны два массива целых чисел.​Вернуть true если у них одинаковый первый или последний элемент.
@@ -140,7 +128,7 @@ public class TasksTest {
     commonEnd([1, 2, 3], [1, 3]) → true
      */
 
-  /* @Test
+   @Test
     public void testCommonEnd1() {
         Tasks c = new Tasks();
         int[] a = {1,2,3};
@@ -173,7 +161,7 @@ public class TasksTest {
         int[] b = {1,3};
         //boolean bool = c.commonEnd(a,b);
         assertFalse(c.commonEnd(a,b));
-    }  */
+    }
 
     /* ----------------- TASK - sum2 ----------------
     Дан массив целых чисел.​Вернуть сумму двух первых элементов массива.
@@ -184,7 +172,7 @@ public class TasksTest {
     sum2([1, 1, 1, 1]) → 2
 */
 
-  /*  @Test
+    @Test
     public void testSum2_1() {
         Tasks c = new Tasks();
         int[] num = {1,2,3};
@@ -212,7 +200,7 @@ public class TasksTest {
         int[] num = {1};
         int sum = c.sum2(num);
         assertEquals(1,sum);
-    } */
+    }
 
         /* ----------------- TASK - countEvens ----------------
     Вернуть количество четных чисел в массиве​целых чисел.
@@ -222,7 +210,7 @@ public class TasksTest {
     countEvens([1, 3, 5]) → 0
      */
 
- /*   @Test
+    @Test
     public void testCountEvens1() {
         Tasks c = new Tasks();
         int[] arr = {2,1,2,3,4};
@@ -244,7 +232,7 @@ public class TasksTest {
         int[] arr = {1,3,5};
         int count = c.countEvens(arr);
         assertEquals(0,count);
-    } */
+    }
 
     /* ----------------- TASK - zeroMax ----------------
       Вернуть версию входного массива,​где каждыое нулевое значение заменено максимальным нечетным значением,
@@ -268,7 +256,7 @@ public class TasksTest {
 
      */
 
-  /*  @Test
+    @Test
     public void testShiftLeft1() {
         Tasks c = new Tasks();
         int[] arr = {6,2,5,3};
@@ -291,7 +279,7 @@ public class TasksTest {
         int[] arr = {1};
         int[] newArr = c.shiftLeft(arr);
         assertEquals(newArr, arr);
-    }  */
+    }
 
     /* ----------------- TASK - nonStart  ----------------
     Даны две строки,​вернуть их конкатенацию, но без первого символа в каждой.
@@ -301,7 +289,7 @@ public class TasksTest {
     nonStart("shotl", "java") → "hotlava"
      */
 
- /*   @Test
+    @Test
     public void testNonStart1() {
         Tasks c = new Tasks();
         String s = c.nonStart("Hello", "There");
@@ -320,7 +308,7 @@ public class TasksTest {
         Tasks c = new Tasks();
         String s = c.nonStart("shotl", "java");
         assertEquals("hotlava", s);
-    }   */
+    }
 
     /* ----------------- TASK - middleTwo  ----------------
 
@@ -331,7 +319,7 @@ public class TasksTest {
       middleTwo("Practice") → "ct"
   */
 
-  /*  @Test
+    @Test
     public void testMiddleTwo1() {
         Tasks c = new Tasks();
         String str = c.middleTwo("string");
@@ -351,5 +339,5 @@ public class TasksTest {
         assertEquals("ct", str);
     }
 
-*/
+
 }
