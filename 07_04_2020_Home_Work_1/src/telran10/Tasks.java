@@ -2,56 +2,11 @@ package telran10;
 
 import java.util.Arrays;
 
+import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+
 public class Tasks {
     public static void main(String[] args) {
 
-     /*   System.out.println("------------ TASK - sleepIn -----------------");
-        System.out.println(sleepIn(false,false));
-
-
-
-        System.out.println(" ------------ TASK - diff 21 ----------------- ");
-
-
-        System.out.println(diff21(19));
-
-        //System.out.println(" --------------- Task - endUp  ----------------- ");      // НЕ РЕШЕНА !!!
-        //System.out.println(endUp("Hello"));
-
-        System.out.println(" --------------- TASK - maxNumber  ----------------- ");
-        System.out.println(Max(1,2,3));
-
-        System.out.println(" --------------- TASK - commonEnd  ----------------- ");
-        int[] a = {1,2,3};
-        int[] b = {7,3};
-        System.out.println(commonEnd(a,b));
-
-        System.out.println(" --------------- TASK - sum2  ----------------- ");
-        int[] nums = {1,2,3};
-        System.out.println(sum2(nums));
-
-        System.out.println(" --------------- TASK - countEvens  ----------------- ");
-        int[] nums = {2, 1, 2, 3, 4};
-        System.out.println(countEvens(nums));
-
-        System.out.println(" --------------- TASK - zeroMax  ----------------- ");        // НЕ РЕШЕНА !!!
-        int[] nums = {0,5,0,3};
-        zeroMax(nums);
-        System.out.println(Arrays.toString(nums));
-
-
-        System.out.println(" --------------- shiftLeft  ----------------- ");
-        int[] nums = {6, 2, 5, 3};
-        shiftLeft(nums);
-        System.out.println(Arrays.toString(nums));
-
-        System.out.println(" --------------- TASK - nonStart  ----------------- ");
-        System.out.println(nonStart("Hello", "There"));
-
-        System.out.println(" --------------- TASK - nonStart  ----------------- ");
-        System.out.println(middleTwo("string"));
-
-        */
 
     }
 
@@ -98,14 +53,14 @@ public class Tasks {
 
      */
 
-   /* public static String endUp(String str) {                    // НЕ РЕШЕНА !!!
-        if (str.length() >= 3) {                                  // никак не могу понять, как обратиться к последним нескольким символам в строке
-            return str.toUpperCase(str.length()-3);
-        } else {
-            return str.toUpperCase();
-        }
-
-    } */
+    public static String endUp(String str) {
+       if (str.length() > 2) {
+           str = String.join("",str.substring(0,str.length()-3), str.substring(str.length()-3).toUpperCase());
+       } else {
+           str = str.toUpperCase();        // ДУМАЮ, ЧТО ЭТО ДАЛЕКО НЕ ОПТИМАЛЬНЫЙ КОД, НО ВСЁ РАБОТАЕТ.
+       }
+       return str;
+   }
 
     /* ---------- TASK - maxNumber ---------------
     Даны три целых числых ​a, b, c, вернуть наибольшее.
@@ -150,14 +105,14 @@ public class Tasks {
 
     public static int sum2(int[] nums) {
         int sum = 0;
-        for (int i = 0; i < nums.length - 1; i++) {           //
-            if(nums.length >= 2)
-                sum = (nums[0] + nums[1]);
+        if(nums.length >= 2) {
+            return (nums[0] + nums[1]);
         }
         if(nums.length == 1) {
-            sum = nums[0];
+            return nums[0];
+        }else{
+            return sum;
         }
-        return sum;
     }
     /* ----------------- TASK - countEvens ----------------
     Вернуть количество четных чисел в массиве​целых чисел.
@@ -183,28 +138,23 @@ public class Tasks {
       zeroMax([0, 5, 0, 3]) → [5, 5, 3, 3]
       zeroMax([0, 4, 0, 3]) → [3, 4, 3, 3]
       zeroMax([0, 1, 0]) → [1, 1, 0]
-
-
-     */
-
+*/
     public static int[] zeroMax(int[] nums) {
-        int temp = 0;
-        for (int i = 0; i < nums.length - 1 ; i++) {
-            if(nums[i] % 2 != 0 && nums[i] > nums[i+1]){
-                temp = nums[i];
-
-                for (int j = 0; j < nums.length; j++) {
-                    if (nums[j] == 0){
-                        nums[j] = temp;
-                        temp = 0;
-
-                    }
+        int temp;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 0) {
+                temp = 0;
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[j] > temp && nums[j] % 2 != 0)
+                        temp = nums[j];
                 }
+                if (temp != 0)
+                    nums[i] = temp;
             }
         }
-
         return nums;
     }
+
 
     /* ------------- TASK - shiftLeft -----------------
     Вернуть массив, ​смещенный влево на один индекс. То ест для {6, 2, 5, 3} вернуть {2, 5, 3, 6}.
@@ -251,5 +201,20 @@ public class Tasks {
     */
     public static String middleTwo(String str) {
         return (str.substring(((str.length() / 2) -1 ),(str.length() / 2) + 1 ));
+    }
+
+    /* ----------------- TASK - WordTransformer   ----------------
+
+        transform("aaa bcDE eklm iii") -> "AAA bcDE eklm III"
+        length == 3 -> to UpperCase
+    */
+    public static String transform(String input) {
+        String[] wordsArr = input.split(" ");
+        for (int i = 0; i < wordsArr.length; i++) {
+            if(wordsArr[i].length() == 3){
+                wordsArr[i] = wordsArr[i].toUpperCase();
+            }
+        }
+        return (String.join(" ", wordsArr));
     }
 }

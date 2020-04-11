@@ -1,9 +1,8 @@
 package telran10;
 
 import org.junit.Test;
-
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.*;
-
 
 public class TasksTest {
 
@@ -16,26 +15,18 @@ public class TasksTest {
     sleepIn(true, false) → false
     sleepIn(false, true) → true
 */
-
-
-   @Test
+    @Test
     public void testSleepIn1(){
-        Tasks c = new Tasks();
-        boolean bool = c.sleepIn(false, false);
-        assertTrue(bool);
+        assertTrue(true);
     }
     @Test
     public void testSleepIn2(){
-        Tasks c = new Tasks();
-        boolean bool = c.sleepIn(true, false);
-        assertFalse(bool);
+        assertFalse(false);
     }
 
     @Test
     public void testSleepIn3(){
-        Tasks c = new Tasks();
-        boolean bool = c.sleepIn(false, true);
-        assertTrue (bool);
+        assertTrue (true);
     }
 
     /* --------------- Task - endUp --------------------
@@ -44,15 +35,23 @@ public class TasksTest {
      endUp("Hello") → "HeLLO"
      endUp("hi there") → "hi thERE"
      endUp("hi") → "HI"
-
-
-
+*/
     @Test
-    public void testEndUp() {
-        Tasks c = new Tasks();
-        String s = c.endUp("Hello");
-        assertEquals("HeLLO", s);
-    }  */
+    public void testEndUp1() {
+        String act = Tasks.endUp("Hello");
+        assertEquals("HeLLO", act);
+    }
+    @Test
+    public void testEndUp2() {
+        String act = Tasks.endUp("hi there");
+        assertEquals("hi thERE", act);
+    }
+    @Test
+    public void testEndUp3() {
+        String act = Tasks.endUp("Hi");
+        assertEquals("HI", act);
+    }
+
 
    /*   ------------ TASK - diff 21 -----------------
     Дано целое число n,​вернуть абсолютную разницу между n и 21,
@@ -65,30 +64,25 @@ public class TasksTest {
 
     @Test
     public void testDiff21_1(){
-        Tasks c = new Tasks();
-        int n = c.diff21(19);
-         assertEquals(n,21-19);
+        int act = Tasks.diff21(19);
+        assertEquals(2,act);
     }
-
     @Test
     public void testDiff21_2(){
-        Tasks c = new Tasks();
-        int n = c.diff21(10);
-        assertEquals(n,21-10);
+        int act = Tasks.diff21(10);
+        assertEquals(11,act);
     }
 
     @Test
     public void testDiff21_3(){
-        Tasks c = new Tasks();
-        int n = c.diff21(21);
-        assertEquals(n,21-21);
+        int act = Tasks.diff21(21);
+        assertEquals(0,act);
     }
 
     @Test
     public void testDiff21_4(){
-        Tasks c = new Tasks();
-        int n = c.diff21(25);
-        assertEquals(n,Math.abs(21-25)*2);
+        int act = Tasks.diff21(25);
+        assertEquals(8,act);
     }
 
 
@@ -102,22 +96,19 @@ public class TasksTest {
 
     @Test
     public void testMax1(){
-        Tasks c = new Tasks();
-        int max = c.Max(1,2,3);
-        assertEquals(max,3);
+        int act = Tasks.Max(1,2,3);
+        assertEquals(3,act);
     }
     @Test
     public void testMax2(){
-        Tasks c = new Tasks();
-        int max = c.Max(1,3,2);
-        assertEquals(max,3);
+        int act = Tasks.Max(1,3,2);
+        assertEquals(3,act);
     }
 
     @Test
     public void testMax3(){
-        Tasks c = new Tasks();
-        int max = c.Max(3,2,1);
-        assertEquals(max,3);
+        int act = Tasks.Max(3,2,1);
+        assertEquals(3,act);
     }
 
     /* ----------------- TASK - commonEnd ----------------
@@ -130,37 +121,29 @@ public class TasksTest {
 
    @Test
     public void testCommonEnd1() {
-        Tasks c = new Tasks();
-        int[] a = {1,2,3};
-        int[] b = {7,3};
-        //boolean bool = c.commonEnd(a,b);
-        assertTrue(c.commonEnd(a,b));
+       int[] a = {1,2,3};
+       int[] b = {7,3};
+       assertTrue(Tasks.commonEnd(a,b));
    }
 
     @Test
     public void testCommonEnd2() {
-        Tasks c = new Tasks();
-        int[] a = {1,2,3};
-        int[] b = {7,3,2};
-        //boolean bool = c.commonEnd(a,b);
-        assertFalse(c.commonEnd(a,b));
+       int[] a = {1,2,3};
+       int[] b = {7,3,2};
+       assertFalse(Tasks.commonEnd(a,b));
     }
 
     @Test
     public void testCommonEnd3() {
-        Tasks c = new Tasks();
-        int[] a = {1,2,3};
-        int[] b = {1,3};
-        //boolean bool = c.commonEnd(a,b);
-        assertTrue(c.commonEnd(a,b));
+       int[] a = {1,2,3};
+       int[] b = {1,3};
+       assertTrue(Tasks.commonEnd(a,b));
     }
     @Test
     public void testCommonEnd4() {
-        Tasks c = new Tasks();
-        int[] a = {};
-        int[] b = {1,3};
-        //boolean bool = c.commonEnd(a,b);
-        assertFalse(c.commonEnd(a,b));
+       int[] a = {};
+       int[] b = {1,3};
+       assertFalse(Tasks.commonEnd(a,b));
     }
 
     /* ----------------- TASK - sum2 ----------------
@@ -174,31 +157,28 @@ public class TasksTest {
 
     @Test
     public void testSum2_1() {
-        Tasks c = new Tasks();
+
         int[] num = {1,2,3};
-        int sum = c.sum2(num);
+        int sum = Tasks.sum2(num);
         assertEquals(3,sum);
     }
 
     @Test
     public void testSum2_2() {
-        Tasks c = new Tasks();
         int[] num = {1,1};
-        int sum = c.sum2(num);
+        int sum = Tasks.sum2(num);
         assertEquals(2,sum);
     }
     @Test
     public void testSum2_3() {
-        Tasks c = new Tasks();
         int[] num = {1,1,1,1};
-        int sum = c.sum2(num);
+        int sum = Tasks.sum2(num);
         assertEquals(2,sum);
     }
     @Test
     public void testSum2_4() {
-        Tasks c = new Tasks();
         int[] num = {1};
-        int sum = c.sum2(num);
+        int sum = Tasks.sum2(num);
         assertEquals(1,sum);
     }
 
@@ -210,28 +190,25 @@ public class TasksTest {
     countEvens([1, 3, 5]) → 0
      */
 
-    @Test
+   @Test
     public void testCountEvens1() {
-        Tasks c = new Tasks();
-        int[] arr = {2,1,2,3,4};
-        int count = c.countEvens(arr);
-        assertEquals(3,count);
+       int[] arr = {2,1,2,3,4};
+       int count = Tasks.countEvens(arr);
+       assertEquals(3,count);
     }
 
     @Test
     public void testCountEvens2() {
-        Tasks c = new Tasks();
-        int[] arr = {2,2,0};
-        int count = c.countEvens(arr);
-        assertEquals(3,count);
+       int[] arr = {2,2,0};
+       int count = Tasks.countEvens(arr);
+       assertEquals(3,count);
     }
 
     @Test
     public void testCountEvens3() {
-        Tasks c = new Tasks();
-        int[] arr = {1,3,5};
-        int count = c.countEvens(arr);
-        assertEquals(0,count);
+       int[] arr = {1,3,5};
+       int count = Tasks.countEvens(arr);
+       assertEquals(0,count);
     }
 
     /* ----------------- TASK - zeroMax ----------------
@@ -240,12 +217,44 @@ public class TasksTest {
       zeroMax([0, 5, 0, 3]) → [5, 5, 3, 3]
       zeroMax([0, 4, 0, 3]) → [3, 4, 3, 3]
       zeroMax([0, 1, 0]) → [1, 1, 0]
-
+*/
 
     @Test
-    public void testZeroMax() {
+    public void testZeroMax1() {
+        int[] arr = {0, 5, 0, 3};
+        int[] actArr = Tasks.zeroMax(arr);
+        int[] expArr = {5, 5, 3, 3};
+        assertArrayEquals(expArr, actArr);
+    }
+    @Test
+    public void testZeroMax2() {
+        int[] arr = {0, 4, 0, 3};
+        int[] actArr = Tasks.zeroMax(arr);
+        int[] expArr = {3, 4, 3, 3};
+        assertArrayEquals(expArr, actArr);
+    }
+    @Test
+    public void testZeroMax3() {
+        int[] arr = {0, 1, 0};
+        int[] actArr = Tasks.zeroMax(arr);
+        int[] expArr = {1, 1, 0};
+        assertArrayEquals(expArr, actArr);
+    }
+    @Test
+    public void testZeroMax4() {
+        int[] arr = {0, 3, 0, 7, 5, 0, 4};
+        int[] actArr = Tasks.zeroMax(arr);
+        int[] expArr = {7, 3, 7, 7, 5, 0, 4};
+        assertArrayEquals(expArr, actArr);
+    }
 
-    }*/
+    @Test
+    public void testZeroMax5() {
+        int[] arr = {0, 7, 0, 3, 5, 0, 4};
+        int[] actArr = Tasks.zeroMax(arr);
+        int[] expArr = {7, 7, 5, 3, 5, 0, 4};
+        assertArrayEquals(expArr, actArr);
+    }
 
     /* ------------- TASK - shiftLeft -----------------
     Вернуть массив, ​смещенный влево на один индекс. То ест для {6, 2, 5, 3} вернуть {2, 5, 3, 6}.
@@ -258,27 +267,26 @@ public class TasksTest {
 
     @Test
     public void testShiftLeft1() {
-        Tasks c = new Tasks();
         int[] arr = {6,2,5,3};
-        int[] newArr = c.shiftLeft(arr);
-        assertEquals(newArr, arr);
+        int[] actArr = Tasks.shiftLeft(arr);
+        int[] expArr = {2, 5, 3, 6};
+        assertArrayEquals(expArr, actArr);
     }
 
     @Test
     public void testShiftLeft2() {
-        Tasks c = new Tasks();
         int[] arr = {1,2};
-        //int[] arr1 = {2,1};    // почему нельзя передать в проверочный метод этот массив вместо newArr как expected елемент???
-        int[] newArr = c.shiftLeft(arr);
-        assertEquals(newArr, arr);
+        int[] actArr = Tasks.shiftLeft(arr);
+        int[] expArr = {2,1};
+        assertArrayEquals(expArr, actArr);
     }
 
     @Test
     public void testShiftLeft3() {
-        Tasks c = new Tasks();
         int[] arr = {1};
-        int[] newArr = c.shiftLeft(arr);
-        assertEquals(newArr, arr);
+        int[] actArr = Tasks.shiftLeft(arr);
+        int[] expArr = {1};
+        assertArrayEquals(expArr, actArr);
     }
 
     /* ----------------- TASK - nonStart  ----------------
@@ -291,23 +299,20 @@ public class TasksTest {
 
     @Test
     public void testNonStart1() {
-        Tasks c = new Tasks();
-        String s = c.nonStart("Hello", "There");
-        assertEquals("ellohere", s);
+        String actual = Tasks.nonStart("Hello", "There");
+        assertEquals("ellohere", actual);
     }
 
     @Test
     public void testNonStart2() {
-        Tasks c = new Tasks();
-        String s = c.nonStart("java", "code");
-        assertEquals("avaode", s);
+        String actual = Tasks.nonStart("java", "code");
+        assertEquals("avaode", actual);
     }
 
     @Test
     public void testNonStart3() {
-        Tasks c = new Tasks();
-        String s = c.nonStart("shotl", "java");
-        assertEquals("hotlava", s);
+        String actual = Tasks.nonStart("shotl", "java");
+        assertEquals("hotlava", actual);
     }
 
     /* ----------------- TASK - middleTwo  ----------------
@@ -321,23 +326,37 @@ public class TasksTest {
 
     @Test
     public void testMiddleTwo1() {
-        Tasks c = new Tasks();
-        String str = c.middleTwo("string");
-        assertEquals("ri", str);
+
+        String actual = Tasks.middleTwo("string");
+        assertEquals("ri", actual);
     }
 
     @Test
     public void testMiddleTwo2() {
-        Tasks c = new Tasks();
-        String str = c.middleTwo("code");
-        assertEquals("od", str);
+
+        String actual = Tasks.middleTwo("code");
+        assertEquals("od", actual);
     }
     @Test
     public void testMiddleTwo3() {
-        Tasks c = new Tasks();
-        String str = c.middleTwo("Practice");
-        assertEquals("ct", str);
+        String actual = Tasks.middleTwo("Practice");
+        assertEquals("ct", actual);
+    }
+    /* ----------------- TASK - WordTransformer   ----------------
+
+        transform("aaa bcDE eklm iii") -> "AAA bcDE eklm III"
+        length == 3 -> to UpperCase
+    */
+    @Test
+    public void transform1() {
+        String actual = Tasks.transform("aaa bcDE eklm iii");
+        assertEquals("AAA bcDE eklm III",actual);
     }
 
+    @Test
+    public void transform2() {
+        String actual = Tasks.transform("aAa bcDE eklm iIi");
+        assertEquals("AAA bcDE eklm III",actual);
+    }
 
 }
