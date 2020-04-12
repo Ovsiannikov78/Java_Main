@@ -181,6 +181,12 @@ public class TasksTest {
         int sum = Tasks.sum2(num);
         assertEquals(1,sum);
     }
+    @Test
+    public void testSum2_5() {
+        int[] num = {};
+        int sum = Tasks.sum2(num);
+        assertEquals(0,sum);
+    }
 
         /* ----------------- TASK - countEvens ----------------
     Вернуть количество четных чисел в массиве​целых чисел.

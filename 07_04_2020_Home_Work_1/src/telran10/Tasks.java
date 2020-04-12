@@ -52,16 +52,13 @@ public class Tasks {
      endUp("hi") → "HI"
 
      */
-
     public static String endUp(String str) {
-       if (str.length() > 2) {
-           str = String.join("",str.substring(0,str.length()-3), str.substring(str.length()-3).toUpperCase());
-       } else {
-           str = str.toUpperCase();        // ДУМАЮ, ЧТО ЭТО ДАЛЕКО НЕ ОПТИМАЛЬНЫЙ КОД, НО ВСЁ РАБОТАЕТ.
-       }
-       return str;
-   }
-
+        if (str.length() > 2) {
+            return str.substring(0, str.length() - 3) + str.substring(str.length() - 3).toUpperCase();
+        } else {
+            return str.toUpperCase();
+        }
+    }
     /* ---------- TASK - maxNumber ---------------
     Даны три целых числых ​a, b, c, вернуть наибольшее.
      intMax(1, 2, 3) → 3
@@ -107,8 +104,7 @@ public class Tasks {
         int sum = 0;
         if(nums.length >= 2) {
             return (nums[0] + nums[1]);
-        }
-        if(nums.length == 1) {
+        } else if(nums.length == 1) {
             return nums[0];
         }else{
             return sum;
