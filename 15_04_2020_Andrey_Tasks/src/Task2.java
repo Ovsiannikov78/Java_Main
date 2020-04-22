@@ -13,7 +13,7 @@ public class Task2 {
 
     public static boolean stringCheck2(String s1, String s2) {
 
-        if ((s1 != null) && (s2 != null) && (s1.length() == 5) && (s1.length() - s2.length()) == 1) {
+        if ((s1 != null) && (s2 != null) && /*(s1.length() == 5) && */Math.abs(s1.length() - s2.length()) == 1) {
 
             char[] leters1 = s1.toCharArray();
             char[] leters2 = s2.toCharArray();
