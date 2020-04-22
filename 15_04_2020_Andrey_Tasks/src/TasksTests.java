@@ -26,8 +26,9 @@ public class TasksTests {
        ("hello" -> "ohlle") => false
        (null  -> "ohlle") => false
        ("hello" -> "ohllert") => false
-
-   */
+       ("ohlleo" -> "hello") => false
+       ("hello" -> "ohlleo") => false
+*/
 
 
     @Test
@@ -55,6 +56,18 @@ public class TasksTests {
     public void testStringCheck2_4(){
         String s1 = "hello" ;
         String s2 = "ohllert";
+        Assert.assertFalse(Task2.stringCheck2(s1,s2));
+    }
+    @Test
+    public void testStringCheck2_5(){
+        String s1 = "helloe";
+        String s2 = "hello";
+        Assert.assertFalse(Task2.stringCheck2(s1,s2));
+    }
+    @Test
+    public void testStringCheck2_6(){
+        String s1 = "hello";
+        String s2 = "helloe";
         Assert.assertFalse(Task2.stringCheck2(s1,s2));
     }
 
