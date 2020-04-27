@@ -1,7 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class CustomArrayListTest {
 
@@ -74,5 +73,22 @@ public class CustomArrayListTest {
         }
         assertEquals(3, al.size());
         assertTrue(isRemoved);
+    }
+    @Test
+    public void testRemoveByElementIfElementIsWrong() {
+        String [] input = {"aa", "bb", "cc", "dd"};
+        CustomArrayList<String> al = new CustomArrayList<>();
+
+        for(String a:input) {
+            al.append(a);
+        }
+        boolean isRemoved = al.removeByElement("ff");
+        String [] expected = {"aa", "bb","cc","dd"};
+
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], al.get(i));
+        }
+        assertEquals(4, al.size());
+        assertFalse(isRemoved);
     }
 }

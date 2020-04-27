@@ -61,9 +61,10 @@ public class CustomArrayList<E> implements CustomList<E> {
             if (e.equals(source[i])) {
                 System.arraycopy(source, i + 1, source, i, size);
                 size--;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 }
 
