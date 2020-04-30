@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CustomLinkedListTest {
 
@@ -54,4 +55,21 @@ public class CustomLinkedListTest {
         assertEquals("cc", expectedDeletedItem);
     }
 
+    @Test
+    public void testRemoveByElement() {
+        String[] input = {"aa", "bb", "cc", "dd"};
+        CustomLinkedList<String> al = new CustomLinkedList<>();
+
+        for (String a : input) {
+            al.append(a);
+        }
+        boolean isRemoved = al.removeByElement("cc");
+        String[] expected = {"aa", "bb", "dd"};
+
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], al.get(i));
+        }
+        assertEquals(3, al.size());
+        assertTrue(isRemoved);
+    }
 }

@@ -13,11 +13,11 @@ public class CustomLinkedList<E> implements CustomList<E> {
 
     @Override
     public void append(E o) {
-        if(size > 0) {
-            Node newNode = new  Node(null,last, o);
+        if (size > 0) {
+            Node newNode = new Node(null, last, o);
             last.next = newNode;
             last = newNode;
-        }else {
+        } else {
             Node newNode = new Node(null, null, o);
             first = newNode;
             last = newNode;
@@ -27,15 +27,15 @@ public class CustomLinkedList<E> implements CustomList<E> {
 
     @Override
     public E get(int index) {
-        if(index < 0 || index >= size){
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
 
         Node ret = getNode(index);
-                return (E)ret.value;
+        return (E) ret.value;
     }
 
-    private Node getNode(int index){
+    private Node getNode(int index) {
         Node ret = first;
         for (int i = 0; i < index; i++) {
             ret = ret.next;
@@ -53,21 +53,32 @@ public class CustomLinkedList<E> implements CustomList<E> {
         ret.next.prev = ret.prev;
         size--;
 
-        return (E)ret.value;
+        return (E) ret.value;
     }
 
 
     @Override
-    public boolean removeByElement(Object o) {
-
+    public boolean removeByElement(E e) {
+        Node ret = first;
+        for (int i = 0; i < size; i++) {
+            ret = ret.next;
+            if (ret.value.equals(e)) {
+                ret.prev.next = ret.next;
+                ret.next.prev = ret.prev;
+                size--;
+                return true;
+            }
+        }
         return false;
     }
-    private static  class Node<E> {
-    E value;
-    Node next;
-    Node prev;
 
-        public Node(Node next, Node prev,E value) {
+
+    private static class Node<E> {
+        E value;
+        Node next;
+        Node prev;
+
+        public Node(Node next, Node prev, E value) {
             this.value = value;
             this.next = next;
             this.prev = prev;
