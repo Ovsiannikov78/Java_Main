@@ -40,17 +40,6 @@ public class CustomArrayList<E> implements CustomList<E> {
         }
         Object o = source[index];
         System.arraycopy(source, index + 1, source, index, size - index);
-
-//        Object [] newSource = new Object[source.length];
-//        for(int i = 0; i< newSource.length; i++) {
-//            System.out.println(source[i]);
-//            if(i < index) {
-//                newSource[i] = source[i];
-//            }
-//            if(i >= index) {
-//                newSource[i] =source[i+1];
-//            }
-//        }
         size--;
         return (E) o;
     }
