@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AnagramOfName {
    /*     Анаграмма слова x - слово, по длине равное x и состоящее из таких же букв, что и x.
@@ -13,21 +9,29 @@ public class AnagramOfName {
           Например, по слову “ivan” функция вернет
           "ivan" -> {"ivan", "navi", "vani"}
     */
+    public static String[] anagrams = {"anna", "ivan", "naan", "vani", "piotr", "nana", "navi"};
 
     public static void main(String[] args) {
-        String name = "anna";
-        String[] anagrams = {"anna", "ivan", "naan", "vani", "piotr", "nana", "navi"};
-        System.out.println(createAnagramMap(anagrams, name));
+        String name = "ivan";
+        System.out.println(getAnagram(name));
 
     }
 
+    public static List<String> getAnagram(String name){
+        List<String> anagramList = new ArrayList<>();
+        for (List<String> value : createAnagramMap(anagrams,name).values()) {
+            anagramList.addAll(value);
+        }
+        return  anagramList;
+    }
+
     public static String getSortedCharArrayFromString(String string) {
-        char[] charArr = string.toCharArray();
+        char[] charArr = string.toLowerCase().toCharArray();
         Arrays.sort(charArr);
         return new String(charArr);
     }
 
-    public static Map<String, List<String>> createAnagramMap(String[] anagrams, String name) {
+    private static Map<String,List<String>> createAnagramMap(String[] anagrams, String name) {
         List<String> anagramList = new ArrayList<>();
         Map<String, List<String>> anagramMap = new HashMap();
         for (String str : anagrams) {
