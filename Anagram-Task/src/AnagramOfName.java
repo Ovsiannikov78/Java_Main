@@ -18,14 +18,11 @@ public class AnagramOfName {
     }
 
     public static List<String> getAnagram(String name){
-        List<String> anagramList = new ArrayList<>();
-        for (List<String> value : createAnagramMap(anagrams,name).values()) {
-            anagramList.addAll(value);
+        return  createAnagramMap(anagrams,name).get(getSortedCharArrayFromString(name));
         }
-        return  anagramList;
-    }
 
-    public static String getSortedCharArrayFromString(String string) {
+
+    private static String getSortedCharArrayFromString(String string) {
         char[] charArr = string.toLowerCase().toCharArray();
         Arrays.sort(charArr);
         return new String(charArr);
